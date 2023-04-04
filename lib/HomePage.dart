@@ -10,13 +10,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int tabs = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         padding: EdgeInsets.all(20),
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
         child: Column(
           children: [
             SizedBox(
@@ -109,6 +110,89 @@ class _HomePageState extends State<HomePage> {
                     enabledBorder:
                         OutlineInputBorder(borderSide: BorderSide.none),
                     fillColor: Colors.pink[200]),
+              ),
+            ),
+            SizedBox(
+              height: 22,
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 110,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Colors.red,
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text("Categories"),
+              ],
+            )),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 50,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          tabs = 0;
+                        });
+                      },
+                      child: Container(
+                        width: 101,
+                        height: 34,
+                        decoration: BoxDecoration(
+                            color: Colors.pink.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(5)),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          tabs = 0;
+                        });
+                      },
+                      child: Container(
+                        width: 101,
+                        height: 34,
+                        decoration: BoxDecoration(
+                            color: Colors.pink.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(5)),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          tabs = 0;
+                        });
+                      },
+                      child: Container(
+                        width: 101,
+                        height: 34,
+                        decoration: BoxDecoration(
+                            color: Colors.pink.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(5)),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                  ],
+                ),
               ),
             ),
           ],

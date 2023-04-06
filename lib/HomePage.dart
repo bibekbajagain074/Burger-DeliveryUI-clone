@@ -13,19 +13,19 @@ class _HomePageState extends State<HomePage> {
   List<Map<String, dynamic>> menuList = [
     {
       'name': 'Tower Burger',
-      'price': 245.00,
+      'price': "\$ 245.00",
       'image': "images/B1.png",
       'subtitle': 'Juicy Burger'
     },
     {
       'name': 'Chicken Burger',
-      'price': 75.00,
+      'price': "\$ 75.00",
       'image': "images/B2.png",
       'subtitle': 'Double Patty'
     },
     {
       'name': 'Hamburger Patty',
-      'price': 120.00,
+      'price': "\$ 120.00",
       'image': "images/b3.png",
       'subtitle': 'Double Patty'
     },
@@ -213,10 +213,9 @@ class _HomePageState extends State<HomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.all(6.0),
                                   child: Image.asset(
-                                    "images/1.png",
-                                    color: Colors.white,
+                                    "images/icon1.png",
                                   ),
                                 ),
                                 Text(
@@ -252,10 +251,9 @@ class _HomePageState extends State<HomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(6.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: Image.asset(
-                                    "images/1.png",
-                                    color: Colors.white,
+                                    "images/icon2.png",
                                   ),
                                 ),
                                 Text(
@@ -289,10 +287,9 @@ class _HomePageState extends State<HomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   child: Image.asset(
-                                    "images/1.png",
-                                    color: Colors.white,
+                                    "images/icon3.png",
                                   ),
                                 ),
                                 Text(
@@ -326,7 +323,7 @@ class _HomePageState extends State<HomePage> {
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   physics: BouncingScrollPhysics(),
-                  itemCount: 5,
+                  itemCount: menuList.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {},
@@ -341,18 +338,50 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Hero(
                               tag: Image.asset(
-                                "images/1.png",
-                                color: Colors.red,
+                                menuList[index]['image'],
                               ),
-                              child: Container(
-                                width: 109,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    image: DecorationImage(
-                                        image: AssetImage("images/B1.png"),
-                                        fit: BoxFit.fill)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: Container(
+                                  width: 95,
+                                  height: 75,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            menuList[index]['image']),
+                                      )),
+                                ),
                               ),
-                            )
+                            ),
+                            SizedBox(
+                              height: 15,
+                              child: Text(
+                                menuList[index]['name'],
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 15,
+                              child: Text(
+                                menuList[index]['subtitle'],
+                                style: TextStyle(
+                                    fontSize: 11, fontWeight: FontWeight.w400),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 15,
+                              child: Text(
+                                menuList[index]["price"],
+                                style: TextStyle(
+                                    fontSize: 14, fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [],
+                            ),
                           ],
                         ),
                       ),
@@ -381,7 +410,7 @@ class _HomePageState extends State<HomePage> {
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   physics: BouncingScrollPhysics(),
-                  itemCount: 5,
+                  itemCount: menuList.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {},
@@ -396,13 +425,50 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Hero(
                               tag: Image.asset(
-                                "images/1.png",
-                                color: Colors.red,
+                                menuList[index]['image'],
                               ),
-                              child: Container(
-                                width: 109,
+                              child: Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: Container(
+                                  width: 95,
+                                  height: 75,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                            menuList[index]['image']),
+                                      )),
+                                ),
                               ),
-                            )
+                            ),
+                            SizedBox(
+                              height: 15,
+                              child: Text(
+                                menuList[index]['name'],
+                                style: TextStyle(
+                                    fontSize: 12, fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 15,
+                              child: Text(
+                                menuList[index]['subtitle'],
+                                style: TextStyle(
+                                    fontSize: 11, fontWeight: FontWeight.w400),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 15,
+                              child: Text(
+                                menuList[index]["price"],
+                                style: TextStyle(
+                                    fontSize: 14, fontWeight: FontWeight.w500),
+                              ),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [],
+                            ),
                           ],
                         ),
                       ),

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:burger/screens/productdetail.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -326,7 +327,10 @@ class _HomePageState extends State<HomePage> {
                   itemCount: menuList.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (_) => ProductDetail()));
+                      },
                       child: Card(
                         margin: EdgeInsets.only(
                             left: index == 0 ? 0 : 20, bottom: 15, top: 5),

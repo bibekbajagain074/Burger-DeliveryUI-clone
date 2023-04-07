@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:burger/screens/utility/detailpage.dart';
+import 'package:burger/screens/list.dart';
+import 'package:burger/screens/detailpage.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage> {
         selectedItemColor: Colors.pink,
         unselectedItemColor: Colors.black,
         onTap: (value) {},
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined, size: 20),
             label: 'Home',
@@ -241,7 +242,7 @@ class _HomePageState extends State<HomePage> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            tabs = 0;
+                            tabs = 1;
                           });
                         },
                         child: Container(
@@ -277,7 +278,7 @@ class _HomePageState extends State<HomePage> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            tabs = 0;
+                            tabs = 2;
                           });
                         },
                         child: Container(
@@ -331,7 +332,9 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (_) => DetailPage(),
+                              builder: (_) => DetailPage(
+                                product: "",
+                              ),
                             ));
                       },
                       child: Card(
@@ -384,10 +387,6 @@ class _HomePageState extends State<HomePage> {
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.w500),
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [],
                             ),
                           ],
                         ),

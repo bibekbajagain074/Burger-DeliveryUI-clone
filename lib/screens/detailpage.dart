@@ -1,11 +1,12 @@
+import 'package:burger/screens/AddCart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:burger/HomePage.dart';
+import 'package:burger/screens/list.dart';
 
 class DetailPage extends StatelessWidget {
-  const DetailPage({
-    super.key,
-  });
+  final String product;
+  DetailPage({Key? key, required this.product}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,17 +19,26 @@ class DetailPage extends StatelessWidget {
           children: [
             Container(
               padding: EdgeInsets.all(15),
-              height: 280,
+              height: 250,
               width: double.infinity,
               alignment: Alignment.topLeft,
-              decoration: BoxDecoration(),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage(
+                menuList[0]['image'],
+              ))),
               child: InkWell(
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: Icon(
-                  Icons.arrow_back,
-                  size: 25,
+                child: CircleAvatar(
+                  radius: 15,
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    Icons.arrow_back,
+                    size: 20,
+                    color: Colors.pink,
+                  ),
                 ),
               ),
             ),
@@ -90,7 +100,7 @@ class DetailPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Name of Burger",
+                          menuList[0]['name'],
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
@@ -107,7 +117,7 @@ class DetailPage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "Double Patty Burger",
+                    menuList[2]['subtitle'],
                     style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
@@ -157,7 +167,7 @@ class DetailPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        width: 30,
+                        width: 25,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -183,11 +193,40 @@ class DetailPage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) =>  MyCart()));
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            color: Colors.pink,
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "Add to cart",
+                              style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
                 ],
               ),
-            ),
-            SizedBox(
-              height: 20,
             ),
           ],
         ),

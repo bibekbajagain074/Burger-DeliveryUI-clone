@@ -1,6 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:burger/screens/list.dart';
 import 'package:burger/screens/detailpage.dart';
 import 'package:flutter/material.dart';
 
@@ -34,6 +31,13 @@ class _HomePageState extends State<HomePage> {
   ];
 
   int tabs = 0;
+  int _selectedIndex = 0;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyCart extends StatelessWidget {
@@ -48,11 +49,37 @@ class MyCart extends StatelessWidget {
             SizedBox(
               height: 45,
             ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 81,
-              decoration: BoxDecoration(
-                  color: Colors.red, borderRadius: BorderRadius.circular(12)),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  Container(
+                    width: 306,
+                    height: 81,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                          "images/Banner1.png",
+                        )),
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(12)),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Container(
+                    width: 306,
+                    height: 81,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                          "images/Banner1.png",
+                        )),
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(12)),
+                  ),
+                ],
+              ),
             ),
             SizedBox(
               height: 30,
@@ -65,13 +92,18 @@ class MyCart extends StatelessWidget {
                       height: 88,
                       width: 88,
                       decoration: BoxDecoration(
-                          color: Colors.pink[200],
+                          image: DecorationImage(
+                              image: AssetImage(
+                            "images/B2.png",
+                          )),
+                          color: Colors.pink[50],
                           borderRadius: BorderRadius.circular(16)),
                     ),
                     SizedBox(
                       width: 20,
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Cicken Burer",
@@ -83,11 +115,14 @@ class MyCart extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 13, fontWeight: FontWeight.w400),
                         ),
+                        SizedBox(
+                          height: 5,
+                        ),
                         Container(
                           height: 16,
                           width: 48,
                           decoration: BoxDecoration(
-                              color: Colors.pink[200],
+                              color: Colors.pink[50],
                               borderRadius: BorderRadius.circular(48)),
                           child: Center(
                             child: Text(
@@ -101,9 +136,41 @@ class MyCart extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          "\$ 200.00",
+                          "\$ 75.00",
                           style: TextStyle(
                               fontSize: 22, fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      width: 80,
+                    ),
+                    Column(
+                      children: [
+                        CircleAvatar(
+                          radius: 14,
+                          backgroundColor: Colors.grey[100],
+                          child: Icon(
+                            CupertinoIcons.add,
+                            size: 18,
+                            color: Colors.black,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Text("1"),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        CircleAvatar(
+                          radius: 14,
+                          backgroundColor: Colors.grey[100],
+                          child: Icon(
+                            CupertinoIcons.minus,
+                            size: 18,
+                            color: Colors.black,
+                          ),
                         ),
                       ],
                     ),

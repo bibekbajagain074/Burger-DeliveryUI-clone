@@ -17,30 +17,39 @@ class DetailPage extends StatelessWidget {
           child: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              padding: EdgeInsets.all(15),
-              height: 250,
-              width: double.infinity,
-              alignment: Alignment.topLeft,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage(
-                menuList[0]['image'],
-              ))),
-              child: InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: CircleAvatar(
-                  radius: 15,
-                  backgroundColor: Colors.white,
-                  child: Icon(
-                    Icons.arrow_back,
-                    size: 20,
-                    color: Colors.pink,
+            Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(top: 25, left: 20),
+                  height: 55,
+                  width: double.infinity,
+                  alignment: Alignment.topLeft,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: CircleAvatar(
+                      radius: 18,
+                      backgroundColor: Colors.white,
+                      child: Icon(
+                        Icons.arrow_back,
+                        size: 20,
+                        color: Colors.pink,
+                      ),
+                    ),
                   ),
                 ),
-              ),
+                Container(
+                  padding: EdgeInsets.only(top: 10, left: 15, right: 15),
+                  height: 250,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(
+                    "images/burger.png",
+                  ))),
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.all(25.0),
@@ -134,7 +143,7 @@ class DetailPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 15,
                   ),
                   Text(
                     "Double Patty,cheese slice,green lettuce,bell pepper,tomato,onioninfuses hand-pulled espresso with rich chocolate sauce, sweet peppermint, topped with a cloud of whipped cream.",
@@ -144,7 +153,7 @@ class DetailPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Row(
                     children: [
@@ -202,7 +211,7 @@ class DetailPage extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           Navigator.push(context,
-                              MaterialPageRoute(builder: (_) =>  MyCart()));
+                              MaterialPageRoute(builder: (_) => MyCart()));
                         },
                         child: Container(
                           width: MediaQuery.of(context).size.width * 0.7,

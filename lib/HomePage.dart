@@ -223,7 +223,8 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   "Burger",
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color:
+                                          tabs == 0 ? Colors.white : Colors.red,
                                       fontWeight: FontWeight.w500),
                                 ),
                               ],
@@ -231,8 +232,8 @@ class _HomePageState extends State<HomePage> {
                           ),
                           decoration: BoxDecoration(
                               color: tabs == 0
-                                  ? Color.fromARGB(255, 227, 29, 95)
-                                  : Colors.pink,
+                                  ? Colors.pink
+                                  : Colors.pink.withOpacity(0.2),
                               borderRadius: BorderRadius.circular(5)),
                         ),
                       ),
@@ -261,14 +262,17 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   "Pizza",
                                   style: TextStyle(
-                                      color: Colors.red,
+                                      color:
+                                          tabs == 1 ? Colors.white : Colors.red,
                                       fontWeight: FontWeight.w500),
                                 ),
                               ],
                             ),
                           ),
                           decoration: BoxDecoration(
-                              color: Colors.pink.withOpacity(0.2),
+                              color: tabs == 1
+                                  ? Colors.pink
+                                  : Colors.pink.withOpacity(0.2),
                               borderRadius: BorderRadius.circular(5)),
                         ),
                       ),
@@ -297,16 +301,18 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   "Drinks",
                                   style: TextStyle(
-                                      color: Colors.red,
+                                      color:
+                                          tabs == 2 ? Colors.white : Colors.red,
                                       fontWeight: FontWeight.w500),
                                 ),
                               ],
                             ),
                           ),
                           decoration: BoxDecoration(
-                            color: Colors.pink.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
+                              color: tabs == 2
+                                  ? Colors.pink
+                                  : Colors.pink.withOpacity(0.2),
+                              borderRadius: BorderRadius.circular(5)),
                         ),
                       ),
                       SizedBox(
@@ -419,7 +425,15 @@ class _HomePageState extends State<HomePage> {
                   itemCount: menuList.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => DetailPage(
+                                product: "",
+                              ),
+                            ));
+                      },
                       child: Card(
                         margin: EdgeInsets.only(
                             left: index == 0 ? 0 : 20, bottom: 15, top: 5),
@@ -470,10 +484,6 @@ class _HomePageState extends State<HomePage> {
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.w500),
                               ),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [],
                             ),
                           ],
                         ),

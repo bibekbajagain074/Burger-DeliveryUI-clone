@@ -1,5 +1,8 @@
-import 'package:burger/screens/detailpage.dart';
+
+
 import 'package:flutter/material.dart';
+
+import 'detail_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

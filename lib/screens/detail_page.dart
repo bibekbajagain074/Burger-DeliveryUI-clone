@@ -1,8 +1,10 @@
-import 'package:burger/screens/AddCart.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:burger/HomePage.dart';
-import 'package:burger/screens/list.dart';
+
+import '../data/burger_data.dart';
+import 'add_cart.dart';
+
 
 class DetailPage extends StatelessWidget {
   final String product;

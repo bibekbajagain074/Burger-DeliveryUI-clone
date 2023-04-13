@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 import 'detail_page.dart';

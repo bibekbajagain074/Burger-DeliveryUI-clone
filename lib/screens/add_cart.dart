@@ -2,6 +2,8 @@ import 'package:burger/widgets/burger_cart_view_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../utils/styles/custom_text_style.dart';
+
 class MyCart extends StatelessWidget {
   const MyCart({super.key});
 
@@ -50,44 +52,48 @@ class MyCart extends StatelessWidget {
             SizedBox(
               height: 45,
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  Container(
-                    width: 306,
-                    height: 81,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(
-                          "images/Banner1.png",
-                        )),
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(12)),
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Container(
-                    width: 306,
-                    height: 81,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage(
-                          "images/Banner1.png",
-                        )),
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(12)),
-                  ),
-                ],
+            //Banner scrollable
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 8,
+              ),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    Container(
+                      width: 306,
+                      height: 81,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(
+                            "images/Banner1.png",
+                          )),
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(12)),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Container(
+                      width: 306,
+                      height: 81,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage(
+                            "images/Banner1.png",
+                          )),
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(12)),
+                    ),
+                  ],
+                ),
               ),
             ),
-            SizedBox(
-              height: 30,
-            ),
+
+            //Cart's item listview
             Container(
               height: mqh * 0.6,
-              color: Colors.red,
               child: ListView.builder(
                   itemCount: 10,
                   itemBuilder: (context, index) {
@@ -96,7 +102,22 @@ class MyCart extends StatelessWidget {
             ),
             Expanded(
                 child: Container(
-              color: Colors.green,
+              child: Padding(
+                padding: const EdgeInsets.only(top: 0, left: 8, right: 8),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Total",
+                      style: CustomTextStyle.smallBold,
+                    ),
+                    Text(
+                      "100",
+                      style: CustomTextStyle.smallBold,
+                    ),
+                  ],
+                ),
+              ),
             ))
           ],
         ),

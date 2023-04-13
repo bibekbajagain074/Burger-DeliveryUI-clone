@@ -37,12 +37,10 @@ class WelcomePage extends StatelessWidget {
             ),
             CustomButton(
               buttonText: "Get Started",
-              buttonColor: Colors.red,
+              buttonColor: Colors.pink,
               onButtonClick: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (_) => HomePage()));
-
-
               },
             )
           ],

@@ -1,14 +1,12 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../data/burger_data.dart';
 import 'add_cart.dart';
 
-
 class DetailPage extends StatelessWidget {
-  final String product;
-  DetailPage({Key? key, required this.product}) : super(key: key);
+  final Map foodDetail;
+  DetailPage({Key? key, required this.foodDetail}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +28,7 @@ class DetailPage extends StatelessWidget {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: CircleAvatar(
+                    child: const CircleAvatar(
                       radius: 18,
                       backgroundColor: Colors.white,
                       child: Icon(
@@ -48,7 +46,10 @@ class DetailPage extends StatelessWidget {
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage(
-                    "images/burger.png",
+
+                  foodDetail['image'],
+                  
+
                   ))),
                 ),
               ],

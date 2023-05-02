@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../data/burger_data.dart';
 import 'detail_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,29 +10,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Map<String, dynamic>> menuList = [
-    {
-      'name': 'Tower Burger',
-      'price': "\$ 245.00",
-      'image': "images/B1.png",
-      'subtitle': 'Juicy Burger'
-    },
-    {
-      'name': 'Chicken Burger',
-      'price': "\$ 75.00",
-      'image': "images/B2.png",
-      'subtitle': 'Double Patty'
-    },
-    {
-      'name': 'Hamburger Patty',
-      'price': "\$ 120.00",
-      'image': "images/b3.png",
-      'subtitle': 'Double Patty'
-    },
-  ];
-
+  List dataToShow = menuList;
   int tabs = 0;
   int _selectedIndex = 0;
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -210,6 +191,7 @@ class _HomePageState extends State<HomePage> {
                         onTap: () {
                           setState(() {
                             tabs = 0;
+                            dataToShow = menuList;
                           });
                         },
                         child: Container(
@@ -248,7 +230,7 @@ class _HomePageState extends State<HomePage> {
                       GestureDetector(
                         onTap: () {
                           setState(() {
-                            tabs = 1;
+                            dataToShow = pizzaList;
                           });
                         },
                         child: Container(
@@ -336,7 +318,7 @@ class _HomePageState extends State<HomePage> {
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   physics: BouncingScrollPhysics(),
-                  itemCount: menuList.length,
+                  itemCount: dataToShow.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
@@ -344,7 +326,7 @@ class _HomePageState extends State<HomePage> {
                             context,
                             MaterialPageRoute(
                               builder: (_) => DetailPage(
-                                product: "",
+                                foodDetail: dataToShow[index],
                               ),
                             ));
                       },
@@ -359,7 +341,7 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Hero(
                               tag: Image.asset(
-                                menuList[index]['image'],
+                                dataToShow[index]['image'],
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(3.0),
@@ -370,7 +352,7 @@ class _HomePageState extends State<HomePage> {
                                       borderRadius: BorderRadius.circular(10),
                                       image: DecorationImage(
                                         image: AssetImage(
-                                            menuList[index]['image']),
+                                            dataToShow[index]['image']),
                                       )),
                                 ),
                               ),
@@ -378,7 +360,7 @@ class _HomePageState extends State<HomePage> {
                             SizedBox(
                               height: 15,
                               child: Text(
-                                menuList[index]['name'],
+                                dataToShow[index]['name'],
                                 style: TextStyle(
                                     fontSize: 12, fontWeight: FontWeight.w500),
                               ),
@@ -386,7 +368,7 @@ class _HomePageState extends State<HomePage> {
                             SizedBox(
                               height: 15,
                               child: Text(
-                                menuList[index]['subtitle'],
+                                dataToShow[index]['subtitle'],
                                 style: TextStyle(
                                     fontSize: 11, fontWeight: FontWeight.w400),
                               ),
@@ -394,7 +376,7 @@ class _HomePageState extends State<HomePage> {
                             SizedBox(
                               height: 15,
                               child: Text(
-                                menuList[index]["price"],
+                                dataToShow[index]["price"],
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.w500),
                               ),
@@ -427,7 +409,7 @@ class _HomePageState extends State<HomePage> {
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   physics: BouncingScrollPhysics(),
-                  itemCount: menuList.length,
+                  itemCount: popularList.length,
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
@@ -435,7 +417,7 @@ class _HomePageState extends State<HomePage> {
                             context,
                             MaterialPageRoute(
                               builder: (_) => DetailPage(
-                                product: "",
+                                foodDetail: popularList[index],
                               ),
                             ));
                       },
@@ -450,7 +432,7 @@ class _HomePageState extends State<HomePage> {
                           children: [
                             Hero(
                               tag: Image.asset(
-                                menuList[index]['image'],
+                                popularList[index]['image'],
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(3.0),
@@ -461,7 +443,7 @@ class _HomePageState extends State<HomePage> {
                                       borderRadius: BorderRadius.circular(10),
                                       image: DecorationImage(
                                         image: AssetImage(
-                                            menuList[index]['image']),
+                                            popularList[index]['image']),
                                       )),
                                 ),
                               ),
@@ -469,7 +451,7 @@ class _HomePageState extends State<HomePage> {
                             SizedBox(
                               height: 15,
                               child: Text(
-                                menuList[index]['name'],
+                                popularList[index]['name'],
                                 style: TextStyle(
                                     fontSize: 12, fontWeight: FontWeight.w500),
                               ),
@@ -477,7 +459,7 @@ class _HomePageState extends State<HomePage> {
                             SizedBox(
                               height: 15,
                               child: Text(
-                                menuList[index]['subtitle'],
+                                popularList[index]['subtitle'],
                                 style: TextStyle(
                                     fontSize: 11, fontWeight: FontWeight.w400),
                               ),
@@ -485,7 +467,7 @@ class _HomePageState extends State<HomePage> {
                             SizedBox(
                               height: 15,
                               child: Text(
-                                menuList[index]["price"],
+                                popularList[index]["price"],
                                 style: TextStyle(
                                     fontSize: 14, fontWeight: FontWeight.w500),
                               ),
